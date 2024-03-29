@@ -24,8 +24,8 @@ using derived_2 = derived_1*;
 
 int main()
 {
-	void(cc * base_type)();
-	derived_1* first_order;
-	derived_2 second_order;
-	static_assert(are_same_three_v<decltype(base_type), decltype(first_order), decltype(second_order)>, "Types are not the same.");
+	void(cc * base_type)(); //OK
+	derived_1* first_order; //NOT OK when bugcheck is defined
+	derived_2 second_order; //OK
+	static_assert(are_same_three_v<decltype(base_type), decltype(first_order), decltype(second_order)>, "Types are not the same."); //Sanity check to ensure all three types are the same type.
 }
